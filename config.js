@@ -13,16 +13,16 @@ config = {
     // Configure your URL and mail settings here
     production: {
         url: 'http://parkerituk.com',
-        mail: {                                                                                                  
-             transport: 'SMTP',                                                                                   
-             options: {                                                                                           
-                service: 'Gmail',                                                                              
-                auth: {                                                                                          
-                  user: EMAIL_USERNAME,                                                               
-                  pass: EMAIL_PASSWORD                                                                
-                 }                                                                                                
-            }                                                                                                    
-          },
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Gmail',
+                auth: {
+                    user: EMAIL_USERNAME,
+                    pass: EMAIL_PASSWORD
+                }
+            }
+        },
         database: {
             client: 'sqlite3',
             connection: {
@@ -105,11 +105,11 @@ config = {
         database: {
             client: 'mysql',
             connection: {
-                host     : '127.0.0.1',
-                user     : 'root',
-                password : '',
-                database : 'ghost_testing',
-                charset  : 'utf8'
+                host: '127.0.0.1',
+                user: 'root',
+                password: '',
+                database: 'ghost_testing',
+                charset: 'utf8'
             }
         },
         server: {
@@ -126,11 +126,11 @@ config = {
         database: {
             client: 'pg',
             connection: {
-                host     : '127.0.0.1',
-                user     : 'postgres',
-                password : '',
-                database : 'ghost_testing',
-                charset  : 'utf8'
+                host: '127.0.0.1',
+                user: 'postgres',
+                password: '',
+                database: 'ghost_testing',
+                charset: 'utf8'
             }
         },
         server: {
