@@ -18,8 +18,8 @@ config = {
             options: {
                 service: 'Gmail',
                 auth: {
-                    user: EMAIL_USERNAME,
-                    pass: EMAIL_PASSWORD
+                    user: process.env.EMAIL_USERNAME,
+                    pass: process.env.EMAIL_PASSWORD
                 }
             }
         },
