@@ -1,6 +1,6 @@
 // # Ghost Configuration
 // Setup your Ghost install for various environments
-// Documentation can be found at http://support.ghost.org/config/
+// Documentation can be found at http://docs.ghost.org/usage/configuration/
 
 var path = require('path'),
     config;
@@ -8,57 +8,23 @@ var path = require('path'),
 require('dotenv').load();
 
 config = {
-    // ### Production
-    // When running Ghost in the wild, use the production environment
-    // Configure your URL and mail settings here
-    production: {
-        url: 'http://parkerituk.com',
-        mail: {
-            transport: 'SMTP',
-            options: {
-                service: 'Gmail',
-                auth: {
-                    user: process.env.EMAIL_USERNAME,
-                    pass: process.env.EMAIL_PASSWORD
-                }
-            }
-        },
-        database: {
-            client: 'sqlite3',
-            connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
-            },
-            debug: false
-        },
-
-        server: {
-            // Host to be passed to node's `net.Server#listen()`
-            host: '127.0.0.1',
-            // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: '2368'
-        }
-    },
-
     // ### Development **(default)**
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
-        // Change this to your Ghost blogs published URL.
-        url: 'http://localhost:2368',
+        url: 'http://parkerituk.com',
 
-        // Example mail config
-        // Visit http://support.ghost.org/mail for instructions
-        // ```
-        //  mail: {
-        //      transport: 'SMTP',
-        //      options: {
-        //          service: 'Mailgun',
-        //          auth: {
-        //              user: '', // mailgun username
-        //              pass: ''  // mailgun password
-        //          }
-        //      }
-        //  },
-        // ```
+
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Mailgun',
+                auth: {
+                    user: 'postmaster@sandbox4644cf8a56b34c68b53ecec0f3903d65.mailgun.org', // mailgun username
+                    pass: process.env.MAILGUN_PASS // mailgun password
+                }
+            }
+        },
+
 
         database: {
             client: 'sqlite3',
@@ -75,6 +41,37 @@ config = {
         },
         paths: {
             contentPath: path.join(__dirname, '/content/')
+        }
+    },
+
+    // ### Production
+    // When running Ghost in the wild, use the production environment
+    // Configure your URL and mail settings here
+    production: {
+        url: 'http://parkerituk.com',
+
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Mailgun',
+                auth: {
+                    user: 'postmaster@sandbox4644cf8a56b34c68b53ecec0f3903d65.mailgun.org', // mailgun username
+                    pass: process.env.MAILGUN_PASS // mailgun password
+                }
+            }
+        },
+        database: {
+            client: 'sqlite3',
+            connection: {
+                filename: path.join(__dirname, '/content/data/ghost.db')
+            },
+            debug: false
+        },
+        server: {
+            // Host to be passed to node's `net.Server#listen()`
+            host: '127.0.0.1',
+            // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
+            port: '2368'
         }
     },
 
