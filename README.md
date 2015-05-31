@@ -1,2 +1,2 @@
 # Blog built on GHOST
-I write about coding and other things
+My personal blog where I ramble about anything
